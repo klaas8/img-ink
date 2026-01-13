@@ -18,7 +18,7 @@ HEADERS = {
 }
 
 def init():
-    if not ACCOUNT and not PASSWO:
+    if not ACCOUNT and not PASSWORD:
         raise ValueError("环境变量 ACCOUNT和PASSWORD  未设置")
     if not ACCOUNT:
         raise ValueError("环境变量 ACCOUNT  未设置")
