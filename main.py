@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 
 LOGIN_URL   = 'https://img.ink/auth/login.html'
 MORE_URL    = 'https://img.ink/user/moremore.html'
-ACCOUNT     = ''
-PASSWORD    = ''
+ACCOUNT = os.getenv('ACCOUNT')
+PASSWORD = os.getenv('PASSWORD')
 PROXIES     = {}
 TIMEOUT     = 10
 
@@ -15,6 +15,14 @@ HEADERS = {
                   'AppleWebKit/537.36 (KHTML, like Gecko) '
                   'Chrome/114.0 Safari/537.36'
 }
+
+def init():
+    if not ACCOUNT and not PASSWO:
+        raise ValueError("环境变量 ACCOUNT和PASSWORD  未设置")
+    if not ACCOUNT:
+        raise ValueError("环境变量 ACCOUNT  未设置")
+    if not PASSWORD:
+        raise ValueError("环境变量 PASSWORD  未设置")
 
 def log(msg):
     print(f'[{time.strftime("%Y-%m-%d %H:%M:%S")}] {msg}')
@@ -59,6 +67,7 @@ def check_in(session):
 def main():
     with requests.Session() as s:
         try:
+            init()
             token = get_token(s)
             login(s, token)
             check_in(s)
