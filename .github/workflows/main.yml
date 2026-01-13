@@ -27,3 +27,6 @@ jobs:
         
     - name: 运行
       run: python main.py
+      env:
+        ACCOUNT: ${{ secrets.ACCOUNT }}
+        PASSWORD: ${{ secrets.PASSWORD }}
