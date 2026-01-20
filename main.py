@@ -9,7 +9,7 @@ MORE_URL    = 'https://img.ink/user/moremore.html'
 ACCOUNT = os.getenv('ACCOUNT')
 PASSWORD = os.getenv('PASSWORD')
 PROXIES     = {}
-TIMEOUT     = 10
+TIMEOUT     = 20
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
